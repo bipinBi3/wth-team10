@@ -51,6 +51,7 @@ jobs:
       run: docker push ${{ env.registryName }}/${{ env.repositoryName }}:${{ env.tag }}
 
   DockerPush:
+    environment: 'Prod'
     runs-on: ubuntu-latest
     needs: dockerjob
     steps:
