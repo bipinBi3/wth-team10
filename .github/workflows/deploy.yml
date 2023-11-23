@@ -21,9 +21,10 @@ jobs:
       - name: Deploy
         uses: azure/arm-deploy@v1
         with:
+          scope: resourcegroup
           resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
           template: ./InfrastructureAsCode/main.bicep
-          # parameters: examples/template/parameters.json storageAccountType=Standard_LRS sqlServerPassword=${{ secrets.SQL_SERVER }}
+          parameters: environment=test
           # additionalArguments: "--what-if --rollback-on-error --what-if-exclude-change-types Create Ignore"
           
       
