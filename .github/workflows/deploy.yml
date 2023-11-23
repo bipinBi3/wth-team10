@@ -24,7 +24,7 @@ jobs:
           scope: resourcegroup
           resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
           template: ./InfrastructureAsCode/main.bicep
-          parameters: environment=test
+          parameters: environment=prod
           # additionalArguments: "--what-if --rollback-on-error --what-if-exclude-change-types Create Ignore"
           
       
