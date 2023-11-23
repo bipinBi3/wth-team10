@@ -20,9 +20,11 @@ jobs:
     name: job2
     runs-on: ubuntu-latest
     steps:
-      - name: Output
-        shell: pwsh
-        run: Write-Host "Step Two"
+      - name: CowSays Moo
+        uses: mscoutermarsh/cowsays-action@master
+        with:
+          text: 'ship ship ship!'
+          color: 'red'
 #      - name: Azure Login
 #        uses: Azure/login@v1.4.6
 #        with:
