@@ -18,6 +18,7 @@ jobs:
 #          az account show
   jobtwo:
     name: job2
+    needs: jobone
     runs-on: ubuntu-latest
     steps:
       - name: CowSays Moo
