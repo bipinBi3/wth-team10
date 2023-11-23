@@ -18,7 +18,7 @@ env:
   repositoryName: "wth/dotnetcoreapp"
   dockerFolderPath: "Application/src/RazorPagesTestSample"
   tag: ${{ github.run_number }}
-  AppName: "3sn6wc3qibatk-dev"
+  AppName: "3sn6wc3qibatk-test"
   
 jobs:
   build:
