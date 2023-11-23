@@ -18,6 +18,7 @@ env:
   repositoryName: "wth/dotnetcoreapp"
   dockerFolderPath: "Application/src/RazorPagesTestSample"
   tag: ${{ github.run_number }}
+  AppName: "3sn6wc3qibatk-dev"
   
 jobs:
   build:
@@ -49,3 +50,19 @@ jobs:
     - name: Docker push
       run: docker push ${{ env.registryName }}/${{ env.repositoryName }}:${{ env.tag }}
 
+  DockerPush:
+    runs-on: ubuntu-latest
+    needs: dockerjob
+    steps:
+      - uses: actions/checkout@v2
+      - name: Output
+        shell: pwsh
+        run: Write-Host "Azure Login"
+      - name: Azure Login
+        uses: Azure/login@v1.4.6
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AppName }}
+          images: '${{ env.registryName }}/${{ env.repositoryName }}:${{ env.tag }}'
