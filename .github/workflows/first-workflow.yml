@@ -8,11 +8,25 @@ jobs:
     steps:
       - name: Output
         shell: pwsh
-        run: Write-Host "Logging into Azure...."
-      - name: Azure Login
-        uses: Azure/login@v1.4.6
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+        run: Write-Host "Step One"
+#      - name: Azure Login
+#        uses: Azure/login@v1.4.6
+#        with:
+#          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - run: |
-          az account show
+#      - run: |
+#          az account show
+  jobtwo:
+    name: job2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output
+        shell: pwsh
+        run: Write-Host "Step Two"
+#      - name: Azure Login
+#        uses: Azure/login@v1.4.6
+#        with:
+#          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+#      - run: |
+#          az account show
